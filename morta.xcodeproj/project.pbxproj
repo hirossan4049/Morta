@@ -3,10 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30ACA1A94FE9BCBBCB1A953C /* Pods_morta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FF9BE6C974A16AEF7463B7 /* Pods_morta.framework */; };
+		4FBDD33026D5EFC5783428B1 /* Pods_morta_mortaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E680FD35B619D5B262A2735 /* Pods_morta_mortaUITests.framework */; };
+		BCA9B57CE18EC963266519E7 /* Pods_mortaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17DCADC3DFED722448443AF /* Pods_mortaTests.framework */; };
+		D36C8A402543EAD7002DB150 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */; };
+		D36C8A462543EB72002DB150 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A452543EB72002DB150 /* UIColor+hex.swift */; };
+		D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A4D2543EBE3002DB150 /* String+leftPadding.swift */; };
+		D36C8A532543EBF8002DB150 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A522543EBF8002DB150 /* UIColor+.swift */; };
+		D36C8A632543FCF4002DB150 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A612543FCF4002DB150 /* RoutineTableViewCell.swift */; };
+		D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */; };
+		D36C8AA025442400002DB150 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A9F25442400002DB150 /* CreateViewController.swift */; };
+		D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8AB125455602002DB150 /* RoutineItem.swift */; };
 		D3AAC43F2543D32D00DA83D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */; };
 		D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */; };
 		D3AAC4432543D32D00DA83D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4422543D32D00DA83D2 /* ViewController.swift */; };
@@ -15,6 +26,7 @@
 		D3AAC44B2543D33000DA83D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AAC4492543D33000DA83D2 /* LaunchScreen.storyboard */; };
 		D3AAC4562543D33000DA83D2 /* mortaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4552543D33000DA83D2 /* mortaTests.swift */; };
 		D3AAC4612543D33000DA83D2 /* mortaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4602543D33000DA83D2 /* mortaUITests.swift */; };
+		D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4792543D63000DA83D2 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D6C96377D97443324B21321 /* Pods-morta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta.release.xcconfig"; path = "Target Support Files/Pods-morta/Pods-morta.release.xcconfig"; sourceTree = "<group>"; };
+		0E680FD35B619D5B262A2735 /* Pods_morta_mortaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_morta_mortaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		263CA7FF5D1F7CB02661571C /* Pods-morta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta.debug.xcconfig"; path = "Target Support Files/Pods-morta/Pods-morta.debug.xcconfig"; sourceTree = "<group>"; };
+		4BC810F7A21C7C1B114B89AC /* Pods-mortaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortaTests.debug.xcconfig"; path = "Target Support Files/Pods-mortaTests/Pods-mortaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		55DBB5762AFE33ECF7BBFB83 /* Pods-mortaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mortaTests.release.xcconfig"; path = "Target Support Files/Pods-mortaTests/Pods-mortaTests.release.xcconfig"; sourceTree = "<group>"; };
+		86FF9BE6C974A16AEF7463B7 /* Pods_morta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_morta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		956A562D65C7B5227F746D9D /* Pods-morta-mortaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta-mortaUITests.debug.xcconfig"; path = "Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		96EA81257A5BF145831AA74C /* Pods-morta-mortaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta-mortaUITests.release.xcconfig"; path = "Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D17DCADC3DFED722448443AF /* Pods_mortaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mortaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		D36C8A452543EB72002DB150 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		D36C8A4D2543EBE3002DB150 /* String+leftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+leftPadding.swift"; sourceTree = "<group>"; };
+		D36C8A522543EBF8002DB150 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		D36C8A612543FCF4002DB150 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
+		D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineTableViewCell.xib; sourceTree = "<group>"; };
+		D36C8A6C254401BD002DB150 /* Cica-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cica-Regular.ttf"; sourceTree = "<group>"; };
+		D36C8A9F25442400002DB150 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		D36C8AB125455602002DB150 /* RoutineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineItem.swift; sourceTree = "<group>"; };
 		D3AAC43B2543D32D00DA83D2 /* morta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = morta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +79,7 @@
 		D3AAC45C2543D33000DA83D2 /* mortaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mortaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAC4602543D33000DA83D2 /* mortaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mortaUITests.swift; sourceTree = "<group>"; };
 		D3AAC4622543D33000DA83D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3AAC4792543D63000DA83D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30ACA1A94FE9BCBBCB1A953C /* Pods_morta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA9B57CE18EC963266519E7 /* Pods_mortaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +103,71 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBDD33026D5EFC5783428B1 /* Pods_morta_mortaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60AB4CF280DDA6A0E15DEA86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				263CA7FF5D1F7CB02661571C /* Pods-morta.debug.xcconfig */,
+				0D6C96377D97443324B21321 /* Pods-morta.release.xcconfig */,
+				956A562D65C7B5227F746D9D /* Pods-morta-mortaUITests.debug.xcconfig */,
+				96EA81257A5BF145831AA74C /* Pods-morta-mortaUITests.release.xcconfig */,
+				4BC810F7A21C7C1B114B89AC /* Pods-mortaTests.debug.xcconfig */,
+				55DBB5762AFE33ECF7BBFB83 /* Pods-mortaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA2D2BB46A996527CB30C236 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86FF9BE6C974A16AEF7463B7 /* Pods_morta.framework */,
+				0E680FD35B619D5B262A2735 /* Pods_morta_mortaUITests.framework */,
+				D17DCADC3DFED722448443AF /* Pods_mortaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D36C8A442543EB64002DB150 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8A452543EB72002DB150 /* UIColor+hex.swift */,
+				D36C8A4D2543EBE3002DB150 /* String+leftPadding.swift */,
+				D36C8A522543EBF8002DB150 /* UIColor+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D36C8A602543FCD3002DB150 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8A612543FCF4002DB150 /* RoutineTableViewCell.swift */,
+				D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D36C8A68254400A1002DB150 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8A6C254401BD002DB150 /* Cica-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D36C8AAD25455138002DB150 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8AB125455602002DB150 /* RoutineItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D3AAC4322543D32D00DA83D2 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +175,8 @@
 				D3AAC4542543D33000DA83D2 /* mortaTests */,
 				D3AAC45F2543D33000DA83D2 /* mortaUITests */,
 				D3AAC43C2543D32D00DA83D2 /* Products */,
+				60AB4CF280DDA6A0E15DEA86 /* Pods */,
+				BA2D2BB46A996527CB30C236 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +193,11 @@
 		D3AAC43D2543D32D00DA83D2 /* morta */ = {
 			isa = PBXGroup;
 			children = (
-				D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */,
-				D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */,
-				D3AAC4422543D32D00DA83D2 /* ViewController.swift */,
-				D3AAC4442543D32D00DA83D2 /* Main.storyboard */,
+				D36C8AAD25455138002DB150 /* Model */,
+				D36C8A68254400A1002DB150 /* Fonts */,
+				D36C8A442543EB64002DB150 /* Extensions */,
+				D3AAC4752543D4D500DA83D2 /* View */,
+				D3AAC4712543D4CB00DA83D2 /* Application */,
 				D3AAC4472543D33000DA83D2 /* Assets.xcassets */,
 				D3AAC4492543D33000DA83D2 /* LaunchScreen.storyboard */,
 				D3AAC44C2543D33000DA83D2 /* Info.plist */,
@@ -128,6 +223,28 @@
 			path = mortaUITests;
 			sourceTree = "<group>";
 		};
+		D3AAC4712543D4CB00DA83D2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */,
+				D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D3AAC4752543D4D500DA83D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8A602543FCD3002DB150 /* Cells */,
+				D3AAC4422543D32D00DA83D2 /* ViewController.swift */,
+				D3AAC4442543D32D00DA83D2 /* Main.storyboard */,
+				D3AAC4792543D63000DA83D2 /* HomeViewController.swift */,
+				D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */,
+				D36C8A9F25442400002DB150 /* CreateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3AAC4652543D33100DA83D2 /* Build configuration list for PBXNativeTarget "morta" */;
 			buildPhases = (
+				4F46FE40E221DF3D622746AE /* [CP] Check Pods Manifest.lock */,
 				D3AAC4372543D32D00DA83D2 /* Sources */,
 				D3AAC4382543D32D00DA83D2 /* Frameworks */,
 				D3AAC4392543D32D00DA83D2 /* Resources */,
+				443E55C22A029E9F14757D94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +271,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3AAC4682543D33100DA83D2 /* Build configuration list for PBXNativeTarget "mortaTests" */;
 			buildPhases = (
+				34A31246A31231F8B0BC4345 /* [CP] Check Pods Manifest.lock */,
 				D3AAC44D2543D33000DA83D2 /* Sources */,
 				D3AAC44E2543D33000DA83D2 /* Frameworks */,
 				D3AAC44F2543D33000DA83D2 /* Resources */,
@@ -170,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3AAC46B2543D33100DA83D2 /* Build configuration list for PBXNativeTarget "mortaUITests" */;
 			buildPhases = (
+				8AC58037CBB2AAE7F9BAD2E0 /* [CP] Check Pods Manifest.lock */,
 				D3AAC4582543D33000DA83D2 /* Sources */,
 				D3AAC4592543D33000DA83D2 /* Frameworks */,
 				D3AAC45A2543D33000DA83D2 /* Resources */,
+				23C9E66DB633B49C83440BCF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +355,7 @@
 			files = (
 				D3AAC44B2543D33000DA83D2 /* LaunchScreen.storyboard in Resources */,
 				D3AAC4482543D33000DA83D2 /* Assets.xcassets in Resources */,
+				D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */,
 				D3AAC4462543D32D00DA83D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,14 +376,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23C9E66DB633B49C83440BCF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34A31246A31231F8B0BC4345 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mortaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		443E55C22A029E9F14757D94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-morta/Pods-morta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-morta/Pods-morta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-morta/Pods-morta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F46FE40E221DF3D622746AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-morta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AC58037CBB2AAE7F9BAD2E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-morta-mortaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3AAC4372543D32D00DA83D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36C8AA025442400002DB150 /* CreateViewController.swift in Sources */,
+				D36C8A402543EAD7002DB150 /* RankingViewController.swift in Sources */,
+				D36C8A532543EBF8002DB150 /* UIColor+.swift in Sources */,
 				D3AAC4432543D32D00DA83D2 /* ViewController.swift in Sources */,
 				D3AAC43F2543D32D00DA83D2 /* AppDelegate.swift in Sources */,
+				D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */,
+				D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */,
 				D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */,
+				D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */,
+				D36C8A632543FCF4002DB150 /* RoutineTableViewCell.swift in Sources */,
+				D36C8A462543EB72002DB150 /* UIColor+hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +600,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,10 +667,12 @@
 		};
 		D3AAC4662543D33100DA83D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 263CA7FF5D1F7CB02661571C /* Pods-morta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR3UW32WU4;
 				INFOPLIST_FILE = morta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,10 +687,12 @@
 		};
 		D3AAC4672543D33100DA83D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D6C96377D97443324B21321 /* Pods-morta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR3UW32WU4;
 				INFOPLIST_FILE = morta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,6 +707,7 @@
 		};
 		D3AAC4692543D33100DA83D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC810F7A21C7C1B114B89AC /* Pods-mortaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +729,7 @@
 		};
 		D3AAC46A2543D33100DA83D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DBB5762AFE33ECF7BBFB83 /* Pods-mortaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +751,7 @@
 		};
 		D3AAC46C2543D33100DA83D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 956A562D65C7B5227F746D9D /* Pods-morta-mortaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +771,7 @@
 		};
 		D3AAC46D2543D33100DA83D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96EA81257A5BF145831AA74C /* Pods-morta-mortaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

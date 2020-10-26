@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Loaf/Loaf.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
