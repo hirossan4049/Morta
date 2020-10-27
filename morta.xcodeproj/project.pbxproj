@@ -18,6 +18,10 @@
 		D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */; };
 		D36C8AA025442400002DB150 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A9F25442400002DB150 /* CreateViewController.swift */; };
 		D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8AB125455602002DB150 /* RoutineItem.swift */; };
+		D36C8AC025470351002DB150 /* RTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8ABF25470351002DB150 /* RTAViewController.swift */; };
+		D36C8AF02547D83A002DB150 /* RTAItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8AEF2547D83A002DB150 /* RTAItem.swift */; };
+		D36C8AF52547D844002DB150 /* RTAItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36C8AF42547D844002DB150 /* RTAItem.xib */; };
+		D36C8B082547DE58002DB150 /* check-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = D36C8B072547DE58002DB150 /* check-animation.json */; };
 		D3AAC43F2543D32D00DA83D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */; };
 		D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */; };
 		D3AAC4432543D32D00DA83D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4422543D32D00DA83D2 /* ViewController.swift */; };
@@ -65,6 +69,10 @@
 		D36C8A6C254401BD002DB150 /* Cica-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cica-Regular.ttf"; sourceTree = "<group>"; };
 		D36C8A9F25442400002DB150 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D36C8AB125455602002DB150 /* RoutineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineItem.swift; sourceTree = "<group>"; };
+		D36C8ABF25470351002DB150 /* RTAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTAViewController.swift; sourceTree = "<group>"; };
+		D36C8AEF2547D83A002DB150 /* RTAItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTAItem.swift; sourceTree = "<group>"; };
+		D36C8AF42547D844002DB150 /* RTAItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RTAItem.xib; sourceTree = "<group>"; };
+		D36C8B072547DE58002DB150 /* check-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "check-animation.json"; sourceTree = "<group>"; };
 		D3AAC43B2543D32D00DA83D2 /* morta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = morta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAC43E2543D32D00DA83D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3AAC4402543D32D00DA83D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 			children = (
 				D36C8A612543FCF4002DB150 /* RoutineTableViewCell.swift */,
 				D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */,
+				D36C8AEF2547D83A002DB150 /* RTAItem.swift */,
+				D36C8AF42547D844002DB150 /* RTAItem.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +176,14 @@
 				D36C8AB125455602002DB150 /* RoutineItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D36C8B032547DE4B002DB150 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D36C8B072547DE58002DB150 /* check-animation.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		D3AAC4322543D32D00DA83D2 = {
@@ -193,6 +211,7 @@
 		D3AAC43D2543D32D00DA83D2 /* morta */ = {
 			isa = PBXGroup;
 			children = (
+				D36C8B032547DE4B002DB150 /* Animations */,
 				D36C8AAD25455138002DB150 /* Model */,
 				D36C8A68254400A1002DB150 /* Fonts */,
 				D36C8A442543EB64002DB150 /* Extensions */,
@@ -241,6 +260,7 @@
 				D3AAC4792543D63000DA83D2 /* HomeViewController.swift */,
 				D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */,
 				D36C8A9F25442400002DB150 /* CreateViewController.swift */,
+				D36C8ABF25470351002DB150 /* RTAViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,8 +373,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36C8AF52547D844002DB150 /* RTAItem.xib in Resources */,
 				D3AAC44B2543D33000DA83D2 /* LaunchScreen.storyboard in Resources */,
 				D3AAC4482543D33000DA83D2 /* Assets.xcassets in Resources */,
+				D36C8B082547DE58002DB150 /* check-animation.json in Resources */,
 				D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */,
 				D3AAC4462543D32D00DA83D2 /* Main.storyboard in Resources */,
 			);
@@ -492,7 +514,9 @@
 				D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */,
 				D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */,
 				D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */,
+				D36C8AC025470351002DB150 /* RTAViewController.swift in Sources */,
 				D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */,
+				D36C8AF02547D83A002DB150 /* RTAItem.swift in Sources */,
 				D36C8A632543FCF4002DB150 /* RoutineTableViewCell.swift in Sources */,
 				D36C8A462543EB72002DB150 /* UIColor+hex.swift in Sources */,
 			);

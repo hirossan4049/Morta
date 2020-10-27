@@ -54,6 +54,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="editBtn" destination="8i4-hJ-REu" id="RPy-JJ-umM"/>
                 <outlet property="indexLabel" destination="rJA-GT-f1i" id="kcS-AS-8Ea"/>
                 <outlet property="titleLabel" destination="Zmo-oe-4Bo" id="z3D-e2-R83"/>
             </connections>

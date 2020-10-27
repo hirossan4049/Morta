@@ -8,7 +8,7 @@ target 'morta' do
   # Pods for morta
   pod 'RealmSwift'
   pod 'Loaf'
-
+  pod 'lottie-ios'
   target 'mortaTests' do
     inherit! :search_paths
     # Pods for testing

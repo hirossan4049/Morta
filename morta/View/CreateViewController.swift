@@ -48,7 +48,25 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func delete(){
+        let alert: UIAlertController = UIAlertController(title: "消去", message: "ルーティーンを消去してもいいですか？", preferredStyle:  UIAlertController.Style.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            let realm = try! Realm()
+            try! realm.write({
+                realm.delete(self.routineItem)
+            })
+            self.dismiss(animated: true, completion: nil)
+            (self.delegrate as! HomeViewController).routineView.reloadData()
+            Loaf("消去しました！", state: .success, sender: self.delegrate).show(.short)
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
         
+
     }
     
     @IBAction func cancel(){
@@ -75,6 +93,8 @@ class CreateViewController: UIViewController {
             Loaf(sucsessMsg, state: .success, sender: delegrate).show(.short)
         }
     }
+    
+
     
     func update(){
         let realm = try! Realm()

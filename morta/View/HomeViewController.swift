@@ -28,9 +28,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         realm = try! Realm()
             
-        try! realm.write({
-            realm.deleteAll()
-        })
+//        try! realm.write({
+//            realm.deleteAll()
+//        })
 //
 //        for i in 1...10{
 //            let item = RoutineItem()
@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getupLabel.textColor = .tabbarColor
         homeLabel.textColor = .tabbarColor
         routineLabel.textColor = .textColor
+        routineView.backgroundColor = .backgroundSubColor
         
         let nib = UINib(nibName: "RoutineTableViewCell", bundle: nil)
         routineView.register(nib, forCellReuseIdentifier: "cell")
@@ -75,6 +76,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         routineView.isEditing = true
         
+        
+        //test
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "RTAViewController") as? RTAViewController
+            vc?.modalPresentationStyle = .fullScreen
+            self.present(vc!, animated: true, completion: nil)
+        }
+
 
 
 
@@ -108,7 +117,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.indexPath = indexPath
         cell.indexLabel.text = String(indexPath.row + 1) + "."
         cell.titleLabel.text = self.routine.filter("index == \(indexPath.row + 1)")[0].title
+        cell.editBtn.addTarget(self,action: #selector(self.cellClicked(_ :)),for: .touchUpInside)
+        cell.editBtn.tag = indexPath.row + 1
         return cell
+    }
+    
+    @objc func cellClicked(_ sender: UIButton){
+        print(sender.tag)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateViewController") as? CreateViewController
+        vc?.delegrate = self
+        vc?.mode = .edit
+        vc?.routineItem = self.routine.filter("index == \(sender.tag)")[0]
+        self.present(vc!, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

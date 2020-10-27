@@ -93,6 +93,66 @@
             </objects>
             <point key="canvasLocation" x="528.98550724637687" y="93.75"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="UUA-KI-PpZ">
+            <objects>
+                <viewController storyboardIdentifier="RTAViewController" id="eWx-YX-XDi" customClass="RTAViewController" customModule="morta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4xZ-3h-Zhk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ow6-PO-usY">
+                                <rect key="frame" x="338" y="44" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="exit" destination="eWx-YX-XDi" eventType="touchUpInside" id="iKt-nA-2n1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-AB-1jG">
+                                <rect key="frame" x="16" y="82" width="382" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-1f-abb">
+                                        <rect key="frame" x="120" y="37" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="r5O-cR-zWh"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FkM-Ep-306">
+                                <rect key="frame" x="16" y="186" width="378" height="560"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lux-9W-v5J"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="AeL-W4-7d6"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z7z-wI-f5D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z7z-wI-f5D" firstAttribute="trailing" secondItem="ow6-PO-usY" secondAttribute="trailing" constant="30" id="1Oo-1L-Gny"/>
+                            <constraint firstItem="4nj-AB-1jG" firstAttribute="leading" secondItem="z7z-wI-f5D" secondAttribute="leading" constant="16" id="3BB-CA-0Cl"/>
+                            <constraint firstItem="ow6-PO-usY" firstAttribute="top" secondItem="z7z-wI-f5D" secondAttribute="top" id="FZj-t7-2ka"/>
+                            <constraint firstItem="z7z-wI-f5D" firstAttribute="trailing" secondItem="FkM-Ep-306" secondAttribute="trailing" constant="16" id="Lio-nq-psd"/>
+                            <constraint firstItem="z7z-wI-f5D" firstAttribute="bottom" secondItem="FkM-Ep-306" secondAttribute="bottom" constant="32" id="fC3-Qh-xtG"/>
+                            <constraint firstItem="FkM-Ep-306" firstAttribute="top" secondItem="4nj-AB-1jG" secondAttribute="bottom" constant="8" id="iXX-IU-ajV"/>
+                            <constraint firstItem="4nj-AB-1jG" firstAttribute="top" secondItem="ow6-PO-usY" secondAttribute="bottom" constant="8" id="ig9-Ne-jRX"/>
+                            <constraint firstItem="z7z-wI-f5D" firstAttribute="trailing" secondItem="4nj-AB-1jG" secondAttribute="trailing" constant="16" id="ncJ-3P-hhG"/>
+                            <constraint firstItem="FkM-Ep-306" firstAttribute="leading" secondItem="z7z-wI-f5D" secondAttribute="leading" constant="16" id="zUV-9f-1Nf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clockBackView" destination="4nj-AB-1jG" id="HRi-08-elq"/>
+                        <outlet property="rtaScrollView" destination="FkM-Ep-306" id="tBi-d8-PmX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A76-9d-Sww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262.31884057971018" y="843.75"/>
+        </scene>
         <!--Ranking View Controller-->
         <scene sceneID="sUI-4q-zHQ">
             <objects>
@@ -195,6 +255,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="O9a-sn-DKd"/>
                                                         <constraint firstAttribute="width" constant="60" id="iTm-Nv-JAk"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" image="plus.circle" catalog="system"/>
                                                     <connections>
                                                         <action selector="create" destination="fXv-nW-RUq" eventType="touchUpInside" id="at5-Wi-KEw"/>
@@ -287,7 +348,7 @@
                                     <constraint firstAttribute="height" constant="32" id="jcQ-3t-xtJ"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
-                                <state key="normal" title="Button" backgroundImage="trash.circle.fill" catalog="system"/>
+                                <state key="normal" backgroundImage="trash.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="delete" destination="bJc-rO-DcO" eventType="touchUpInside" id="DDS-tX-RCj"/>
                                 </connections>
@@ -324,6 +385,9 @@
         <image name="listIcon" width="115" height="81"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -335,6 +399,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
