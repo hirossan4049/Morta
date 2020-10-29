@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     private var nowFragmentsType: FragmentsType!
     private var homeVC: HomeViewController!
     private var rankingVC: RankingViewController!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

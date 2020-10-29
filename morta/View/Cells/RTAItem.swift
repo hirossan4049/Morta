@@ -63,8 +63,29 @@ class RTAItem: UIView {
                 print("finished")
             }
         }
+    }
+    func back(){
+        reset()
+    }
     
+    func reset(){
+        for subview in checkBoxView.subviews{
+            subview.removeFromSuperview()
+        }
+        isChecked = false
+        checkBoxView.backgroundColor = .none
+        titleLabel.textColor = .textColor
+        animationView = AnimationView(name: "check-animation")
+        animationView.frame = CGRect(x: 0, y: 0, width: checkBoxView.bounds.width, height: checkBoxView.bounds.height)
+        animationView.loopMode = .playOnce
+        animationView.contentMode = .scaleAspectFit
+        animationView.animationSpeed = 1.5
         
+        nocheckView = UIImageView(image: UIImage(named: "no-check"))
+        nocheckView.frame = CGRect(x: 0, y: 0, width: checkBoxView.bounds.width, height: checkBoxView.bounds.height)
+        nocheckView.contentMode = .scaleAspectFill
+        checkBoxView.addSubview(nocheckView)
+        checkBoxView.addSubview(animationView)
     }
     
     enum PositionType {
@@ -78,25 +99,9 @@ class RTAItem: UIView {
     func loadNib() {
         if let view = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? UIView {
             view.frame = self.bounds
-            
-            checkBoxView.backgroundColor = .none
             view.backgroundColor = .none
-            animationView = AnimationView(name: "check-animation")
-            animationView.frame = CGRect(x: 0, y: 0, width: checkBoxView.bounds.width, height: checkBoxView.bounds.height)
-//            animationView.center = checkBoxView.center
-//            animationView.loopMode = .loopr
-            animationView.loopMode = .playOnce
-            animationView.contentMode = .scaleAspectFit
-            animationView.animationSpeed = 1.5
-//            checkBoxView.addSubview(animationView)
-            
-            nocheckView = UIImageView(image: UIImage(named: "no-check"))
-            nocheckView.frame = CGRect(x: 0, y: 0, width: checkBoxView.bounds.width, height: checkBoxView.bounds.height)
-            nocheckView.contentMode = .scaleAspectFill
-//            nocheckView.center = checkBoxView.center
-            checkBoxView.addSubview(nocheckView)
-            checkBoxView.addSubview(animationView)
 
+            reset()
             self.addSubview(view)
         }
     }

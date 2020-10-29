@@ -27,12 +27,14 @@ class CreateViewController: UIViewController {
         switch mode {
         case .create:
             navigationBarItem.title = "ルーティーン作成"
-            deleteBtn.isHidden = true
+            deleteBtn.isEnabled  = false
+            deleteBtn.tintColor = .darkGray
             deleteBtn.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 //            deleteBtnConstraint.constant = 0
         case .edit:
             navigationBarItem.title = "ルーティーン編集"
-            deleteBtn.isHidden = false
+            deleteBtn.isEnabled = true
+            deleteBtn.tintColor = .red
 //            deleteBtnConstraint.constant = 32
             textField.text = routineItem.title
             
@@ -83,6 +85,10 @@ class CreateViewController: UIViewController {
                 create()
                 sucsessMsg = "追加しました！"
             case .edit:
+                if textField.text == routineItem.title{
+                    self.dismiss(animated: true, completion: nil)
+                    return
+                }
                 update()
                 sucsessMsg = "アップデートしました！"
             default:
