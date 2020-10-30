@@ -13,6 +13,7 @@ class RTAItem: UIView {
     @IBOutlet weak var topLineView: UIView!
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timerLabel:  UILabel!
 
     private var nocheckView: UIImageView!
     private var animationView: AnimationView!
@@ -72,6 +73,7 @@ class RTAItem: UIView {
         for subview in checkBoxView.subviews{
             subview.removeFromSuperview()
         }
+        timerLabel.isHidden = true
         isChecked = false
         checkBoxView.backgroundColor = .none
         titleLabel.textColor = .textColor

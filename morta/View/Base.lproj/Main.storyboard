@@ -102,15 +102,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ow6-PO-usY">
-                                <rect key="frame" x="344" y="44" width="40" height="33"/>
-                                <fontDescription key="fontDescription" name="Cica-Regular" family="Cica" pointSize="20"/>
+                                <rect key="frame" x="350" y="44" width="34" height="30"/>
+                                <fontDescription key="fontDescription" name="Cica-Regular" family="Cica" pointSize="17"/>
                                 <state key="normal" title="中断"/>
                                 <connections>
                                     <action selector="exit" destination="eWx-YX-XDi" eventType="touchUpInside" id="iKt-nA-2n1"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-AB-1jG">
-                                <rect key="frame" x="16" y="85" width="382" height="85"/>
+                                <rect key="frame" x="16" y="82" width="382" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-1f-abb">
                                         <rect key="frame" x="8" y="8" width="366" height="69"/>
@@ -341,6 +341,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKF-6D-Im6">
+                                <rect key="frame" x="318" y="167" width="62" height="30"/>
+                                <state key="normal" title="再開する"/>
+                                <connections>
+                                    <action selector="resume" destination="fXv-nW-RUq" eventType="touchUpInside" id="7aF-pT-eo7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ibg-tr-5cm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -352,6 +359,8 @@
                             <constraint firstItem="Ibg-tr-5cm" firstAttribute="bottom" secondItem="zaQ-wf-sme" secondAttribute="bottom" constant="20" id="TVc-sJ-2wS"/>
                             <constraint firstItem="Fu0-tG-mxP" firstAttribute="leading" secondItem="Ibg-tr-5cm" secondAttribute="leading" constant="32" id="W8s-0A-hlf"/>
                             <constraint firstItem="Ibg-tr-5cm" firstAttribute="trailing" secondItem="zaQ-wf-sme" secondAttribute="trailing" constant="16" id="ac7-QS-vMi"/>
+                            <constraint firstItem="QKF-6D-Im6" firstAttribute="leading" secondItem="otd-ZI-DxA" secondAttribute="trailing" constant="16" id="e9V-by-Wib"/>
+                            <constraint firstItem="QKF-6D-Im6" firstAttribute="top" secondItem="Ibg-tr-5cm" secondAttribute="top" constant="123" id="eDM-WF-eeh"/>
                             <constraint firstItem="zaQ-wf-sme" firstAttribute="top" secondItem="Fu0-tG-mxP" secondAttribute="bottom" constant="10" id="eR9-Jx-VcG"/>
                             <constraint firstItem="otd-ZI-DxA" firstAttribute="top" secondItem="Ibg-tr-5cm" secondAttribute="top" constant="125" id="jj4-ms-e3c"/>
                             <constraint firstItem="Fu0-tG-mxP" firstAttribute="top" secondItem="zoB-Js-egR" secondAttribute="bottom" constant="10" id="kja-n8-eMd"/>

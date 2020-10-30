@@ -11,8 +11,8 @@ import RealmSwift
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var delegrate: UIViewController!
     
-    var routine:Results<RoutineItem>!
-    var realm:Realm!
+    private var routine:Results<RoutineItem>!
+    private var realm:Realm!
 
     @IBOutlet weak var routineView: UITableView!
     
@@ -77,18 +77,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         routineView.isEditing = true
         
         
-        //test
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "RTAViewController") as? RTAViewController
-            vc?.modalPresentationStyle = .fullScreen
-            self.present(vc!, animated: true, completion: nil)
-        }
-
-
-
-
         
     }
+    
+    @IBAction func resume(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RTAViewController") as? RTAViewController
+        vc?.modalPresentationStyle = .fullScreen
+        self.present(vc!, animated: true, completion: nil)
+    }
+
     
     @IBAction func create(){
 //        delegrate.performSegue(withIdentifier: "toCreate", sender: nil)
@@ -143,10 +140,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let sourceCellItem = cellItemLists[sourceIndexPath.row]
-//        guard let indexPath = cellItemLists.index(of: sourceCellItem) else { return }
-//        cellItemLists.remove(at: indexPath)
-//        cellItemLists.insert(sourceCellItem, at: destinationIndexPath.row)
         if sourceIndexPath == destinationIndexPath{
             return
         }

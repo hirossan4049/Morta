@@ -26,9 +26,6 @@ class ViewController: UIViewController {
         tabbar.backgroundColor = .tabbarColor
         tabbar.layer.cornerRadius = 17
         homeBtn.imageView?.frame.size = CGSize(width: 20, height: 20)
-//        homeBtn.imageView?.image = UIImage(named: "aa",)
-        
-        
         homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
         homeVC.delegrate = self
         rankingVC = storyboard?.instantiateViewController(withIdentifier: "RankingViewController") as? RankingViewController
@@ -70,8 +67,7 @@ class ViewController: UIViewController {
     
     
     
-    // MARK: - Child View Controller Operation Methods
-
+    // MARK: - Child VC Operation Methods
     private func add(viewController: UIViewController) {
 //        addChild(viewController)
 //        view.addSubview(viewController.view)
@@ -83,11 +79,8 @@ class ViewController: UIViewController {
     }
 
     private func remove(viewController: UIViewController) {
-        // 子View Controllerへの通知
         viewController.willMove(toParent: nil)
-        // 子ViewをSuperviewから削除
         viewController.view.removeFromSuperview()
-        // 子View Controllerへの通知
         viewController.removeFromParent()
     }
 

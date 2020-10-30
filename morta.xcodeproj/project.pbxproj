@@ -10,6 +10,7 @@
 		30ACA1A94FE9BCBBCB1A953C /* Pods_morta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FF9BE6C974A16AEF7463B7 /* Pods_morta.framework */; };
 		4FBDD33026D5EFC5783428B1 /* Pods_morta_mortaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E680FD35B619D5B262A2735 /* Pods_morta_mortaUITests.framework */; };
 		BCA9B57CE18EC963266519E7 /* Pods_mortaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17DCADC3DFED722448443AF /* Pods_mortaTests.framework */; };
+		D3526919254BDE7F004907A9 /* AramStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3526918254BDE7F004907A9 /* AramStatus.swift */; };
 		D36C8A402543EAD7002DB150 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */; };
 		D36C8A462543EB72002DB150 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A452543EB72002DB150 /* UIColor+hex.swift */; };
 		D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C8A4D2543EBE3002DB150 /* String+leftPadding.swift */; };
@@ -60,6 +61,7 @@
 		956A562D65C7B5227F746D9D /* Pods-morta-mortaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta-mortaUITests.debug.xcconfig"; path = "Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		96EA81257A5BF145831AA74C /* Pods-morta-mortaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morta-mortaUITests.release.xcconfig"; path = "Target Support Files/Pods-morta-mortaUITests/Pods-morta-mortaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D17DCADC3DFED722448443AF /* Pods_mortaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mortaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3526918254BDE7F004907A9 /* AramStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AramStatus.swift; sourceTree = "<group>"; };
 		D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		D36C8A452543EB72002DB150 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		D36C8A4D2543EBE3002DB150 /* String+leftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+leftPadding.swift"; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D3526917254BDE6B004907A9 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				D3526918254BDE7F004907A9 /* AramStatus.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		D36C8A442543EB64002DB150 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +221,7 @@
 		D3AAC43D2543D32D00DA83D2 /* morta */ = {
 			isa = PBXGroup;
 			children = (
+				D3526917254BDE6B004907A9 /* Enum */,
 				D36C8B032547DE4B002DB150 /* Animations */,
 				D36C8AAD25455138002DB150 /* Model */,
 				D36C8A68254400A1002DB150 /* Fonts */,
@@ -514,6 +525,7 @@
 				D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */,
 				D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */,
 				D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */,
+				D3526919254BDE7F004907A9 /* AramStatus.swift in Sources */,
 				D36C8AC025470351002DB150 /* RTAViewController.swift in Sources */,
 				D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */,
 				D36C8AF02547D83A002DB150 /* RTAItem.swift in Sources */,
