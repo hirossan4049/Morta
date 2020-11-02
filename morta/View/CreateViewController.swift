@@ -54,12 +54,38 @@ class CreateViewController: UIViewController {
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
             let realm = try! Realm()
-            try! realm.write({
+
+            let routineItemIndex = self.routineItem.index
+            try! realm.write{
                 realm.delete(self.routineItem)
-            })
+            }
+            
+            let routine = realm.objects(RoutineItem.self)
+            print(routine)
+
+            guard let routineLast = routine.sorted(byKeyPath: "index", ascending: true).last else {
+                self.deletedDialogDismiss()
+                return
+            }
+            
+            print("routineLast",routineLast.index)
+            print("routineItem",routineItemIndex)
+            if (routineLast.index + 1) == routineItemIndex{
+                self.deletedDialogDismiss()
+                return
+            }
+                    
+            try! realm.write {
+                for index in (routineItemIndex + 1)...routineLast.index{
+                    routine[index].index -= 1
+                }
+            }
+            print(routine)
+            
             self.dismiss(animated: true, completion: nil)
             (self.delegrate as! HomeViewController).routineView.reloadData()
             Loaf("消去しました！", state: .success, sender: self.delegrate).show(.short)
+
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
@@ -69,6 +95,12 @@ class CreateViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
 
+    }
+    
+    func deletedDialogDismiss(){
+        self.dismiss(animated: true, completion: nil)
+        (self.delegrate as! HomeViewController).routineView.reloadData()
+        Loaf("消去しました！", state: .success, sender: self.delegrate).show(.short)
     }
     
     @IBAction func cancel(){

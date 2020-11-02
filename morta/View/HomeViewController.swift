@@ -7,12 +7,17 @@
 
 import UIKit
 import RealmSwift
+import Loaf
+import LSDialogViewController
+
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var delegrate: UIViewController!
     
     private var routine:Results<RoutineItem>!
     private var realm:Realm!
+    private var timeLimitTextField: UITextField!
+    private var datePicker: UIDatePicker!
 
     @IBOutlet weak var routineView: UITableView!
     
@@ -25,7 +30,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         realm = try! Realm()
             
 //        try! realm.write({
@@ -41,9 +45,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            })
 //        }
         
+
         routine = realm.objects(RoutineItem.self)
-    
-        
         
         self.view.backgroundColor = .backgroundColor
         
@@ -76,13 +79,64 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         routineView.isEditing = true
         
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        (self.view.viewWithTag(2525))?.removeFromSuperview()
+        
+        var aramTime = UserDefaults.standard.integer(forKey: "ararmTime")
+        if aramTime == nil {
+            let calendar = Calendar(identifier: .gregorian)
+            var aramClock = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+            aramClock.minute! = 0
+            aramClock.hour! = 6
+            UserDefaults.standard.set(calendar.date(from: aramClock)?.timeIntervalSince1970, forKey: "ararmTime")
+            aramTime = Int(calendar.date(from: aramClock)!.timeIntervalSince1970)
+        }
+        let calendar = Calendar.current
+        let date = Date(timeIntervalSince1970: TimeInterval(aramTime))
+        let hour = calendar.component(.hour, from: date)
+        let min  = calendar.component(.minute, from: date)
+        aleartLabel.text = String(hour).leftPadding(toLength: 2, withPad: "0") + ":" + String(min).leftPadding(toLength: 2, withPad: "0")
+        
+        var isSuspension = UserDefaults.standard.bool(forKey: "isSuspension")
+        if isSuspension == nil{
+            isSuspension = false
+        }
+        
+        let now = calendar.dateComponents([.hour, .minute, .second], from: Date())
+        if now.hour! > hour{
+            // FIXME: まだ
+        }else{
+            
+        }
         
         
     }
     
+
+    
+    @IBAction func edit(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TimePickerViewController") as! TimePickerViewController
+//        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overFullScreen
+        vc.deleglate = self
+        
+        let backView = UIView()
+        backView.frame = CGRect(x: 0, y: -100, width: self.view.frame.width, height: 10000)
+        backView.backgroundColor = UIColor(hex: "000000", alpha: 0.3)
+        backView.tag = 2525
+        self.view.addSubview(backView)
+        
+        self.present(vc, animated: true, completion: nil)
+//        self.presentDialogViewController(vc, animationParttern: .slideBottomBottom, completion: { () -> Void in })
+    }
+    
     @IBAction func resume(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "RTAViewController") as? RTAViewController
-        vc?.modalPresentationStyle = .fullScreen
+        vc?.modalPresentationStyle = .overFullScreen
         self.present(vc!, animated: true, completion: nil)
     }
 

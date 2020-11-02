@@ -1,6 +1,7 @@
 PODS:
   - Loaf (0.5.0)
   - lottie-ios (3.1.8)
+  - LSDialogViewController (4.0)
   - Realm (5.4.6):
     - Realm/Headers (= 5.4.6)
   - Realm/Headers (5.4.6)
@@ -10,21 +11,24 @@ PODS:
 DEPENDENCIES:
   - Loaf
   - lottie-ios
+  - LSDialogViewController (~> 4.0)
   - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Loaf
     - lottie-ios
+    - LSDialogViewController
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
   Loaf: 0800b444431366bc395d54267975d4ad4ad5c99c
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  LSDialogViewController: ab7dd9a3e3facf95b386b7209401ac96bbdc3514
   Realm: bb8d7be40d0bc92f139c47095124513c489c0baf
   RealmSwift: c469118d55feccd985f1de12973c6ef5587213ca
 
-PODFILE CHECKSUM: a723bd0146d47ed3a227330b868ab419e20ad577
+PODFILE CHECKSUM: 118df4680d713785b359a73d65a42050f2ed456c
 
 COCOAPODS: 1.9.1

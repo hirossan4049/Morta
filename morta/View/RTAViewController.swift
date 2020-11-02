@@ -27,8 +27,7 @@ class RTAViewController: UIViewController {
     private var gestureType: GestureType = .yet
     private var aramClock: DateComponents!
     private var calendar: Calendar!
-    private var elapsedTime: Int = 0
-
+    private var elapsedTime: String = ""
 
 
     override func viewDidLoad() {
@@ -42,10 +41,13 @@ class RTAViewController: UIViewController {
         self.guestureBackView.backgroundColor = .none
         
 
-        calendar = Calendar(identifier: .gregorian)
-        aramClock = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-        aramClock.minute! -= 10
-
+        calendar = Calendar.current
+        let aramTime = UserDefaults.standard.integer(forKey: "ararmTime")
+        let date = Date(timeIntervalSince1970: TimeInterval(aramTime))
+        print(date)
+        aramClock = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+        
+        clockLabel.text = "Loading..."
                         
         
         let realm = try! Realm()
@@ -73,11 +75,7 @@ class RTAViewController: UIViewController {
         
         rtaScrollView.showsHorizontalScrollIndicator = false
         
-        start()
-
-        
-        nowIndexCenter(index: 9)
-        
+        start()        
 
 
     }
@@ -165,7 +163,7 @@ class RTAViewController: UIViewController {
             print("rtaindex",self.rtaIndex)
             let rtaItem = rtaItems[self.rtaIndex]
             rtaItem.checkAnimation()
-            rtaItem.timerLabel.text = secs2str(elapsedTime)
+            rtaItem.timerLabel.text = elapsedTime
             rtaItem.timerLabel.isHidden = false
             
             nowIndexCenter(index: self.rtaIndex)
@@ -198,14 +196,18 @@ class RTAViewController: UIViewController {
     }
     
     @objc func timeCheck(){
-        let now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-        let diff1 = calendar.dateComponents([.second], from: self.aramClock, to: now)
-        elapsedTime = diff1.second!
-        clockLabel.text = secs2str(diff1.second!)
+        var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+        now.year = aramClock.year
+        now.month = aramClock.month
+        now.day = aramClock.day
+
+        let diff1 = calendar.dateComponents([.hour,.minute,.second], from: self.aramClock, to: now)
+        clockLabel.text = String(diff1.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.second!).leftPadding(toLength: 2, withPad: "0")
+        elapsedTime = clockLabel.text!
     }
     
     func secs2str(_ second: Int) -> String{
-        return String(second / 60).leftPadding(toLength: 2, withPad: "0") + ":" +  String(second % 60).leftPadding(toLength: 2, withPad: "0")
+        return String(second / 60).leftPadding(toLength: 2, withPad: "0") + ":" + String(second % 60).leftPadding(toLength: 2, withPad: "0")
     }
     
     func touchedView(touches: Set<UITouch>, view:UIView)->Bool{

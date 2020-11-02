@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundColor
         
+//        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.baseVC = self
+        
         tabbar.backgroundColor = .tabbarColor
         tabbar.layer.cornerRadius = 17
         homeBtn.imageView?.frame.size = CGSize(width: 20, height: 20)

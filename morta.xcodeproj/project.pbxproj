@@ -32,6 +32,7 @@
 		D3AAC4562543D33000DA83D2 /* mortaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4552543D33000DA83D2 /* mortaTests.swift */; };
 		D3AAC4612543D33000DA83D2 /* mortaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4602543D33000DA83D2 /* mortaUITests.swift */; };
 		D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4792543D63000DA83D2 /* HomeViewController.swift */; };
+		D3AF1E8E254F99D700C8A88C /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		D3AAC4602543D33000DA83D2 /* mortaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mortaUITests.swift; sourceTree = "<group>"; };
 		D3AAC4622543D33000DA83D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3AAC4792543D63000DA83D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				D36C8A3F2543EAD7002DB150 /* RankingViewController.swift */,
 				D36C8A9F25442400002DB150 /* CreateViewController.swift */,
 				D36C8ABF25470351002DB150 /* RTAViewController.swift */,
+				D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */,
 				D36C8AF02547D83A002DB150 /* RTAItem.swift in Sources */,
 				D36C8A632543FCF4002DB150 /* RoutineTableViewCell.swift in Sources */,
+				D3AF1E8E254F99D700C8A88C /* TimePickerViewController.swift in Sources */,
 				D36C8A462543EB72002DB150 /* UIColor+hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
