@@ -29,6 +29,9 @@ class RTAViewController: UIViewController {
     private var aramClock: DateComponents!
     private var calendar: Calendar!
     private var elapsedTime: String = ""
+    
+    var isDEMO: Bool = false
+    private var startDate: DateComponents!
 
 
     override func viewDidLoad() {
@@ -48,7 +51,9 @@ class RTAViewController: UIViewController {
         aramClock = Calendar.current.dateComponents(in: TimeZone.current, from: date)
         
         clockLabel.text = "Loading..."
-                        
+        
+        startDate = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+
         
         let realm = try! Realm()
         routines = realm.objects(RoutineItem.self).sorted(byKeyPath: "index", ascending: true)
@@ -57,14 +62,13 @@ class RTAViewController: UIViewController {
         let today = calendar.component(.day, from: Date())
         let lastdate = realm.objects(Ranking.self).sorted(byKeyPath: "date", ascending: true).last?.date
         if lastdate != nil{
-            // MARK: DEBUG
-//            let lastday = calendar.component(.day, from:lastdate!)
-//            if lastday == today{
-//                let vc = storyboard?.instantiateViewController(withIdentifier: "ExistsAlertViewController") as! ExistsAlertViewController
-//                vc.modalPresentationStyle = .overFullScreen
-//                vc.delegate = self
-//                self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
-//            }
+            let lastday = calendar.component(.day, from:lastdate!)
+            if lastday == today{
+                let vc = storyboard?.instantiateViewController(withIdentifier: "ExistsAlertViewController") as! ExistsAlertViewController
+                vc.modalPresentationStyle = .overFullScreen
+                vc.delegate = self
+                self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
+            }
         }
         
 
@@ -79,7 +83,7 @@ class RTAViewController: UIViewController {
             }
             let view2 = RTAItem(position: positionType)
             view2.titleLabel.text = item.title
-            view2.frame = CGRect(x: 0, y: 60*(item.index - 1), width: Int(self.rtaScrollView.bounds.width), height: 60)
+            view2.frame = CGRect(x: 0, y: 60*(item.index - 1), width: Int(self.rtaScrollView.frame.width - 30), height: 60)
             self.rtaScrollView.addSubview(view2)
             rtaItems.append(view2)
         }
@@ -214,28 +218,36 @@ class RTAViewController: UIViewController {
     }
     
     func end(){
-        let realm = try! Realm()
-        let ranking = Ranking()
-        ranking.date = Date()
-        routines.forEach{ranking.routineList.append($0)}
-        var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-        now.year = aramClock.year
-        now.month = aramClock.month
-        now.day = aramClock.day
-        let diff = calendar.dateComponents([.second], from: self.aramClock, to: now)
-        ranking.time = Int(diff.second!)
-        try! realm.write({
-            realm.add(ranking)
-        })
-        let rank = realm.objects(Ranking.self).filter("time < \(ranking.time)").count + 1
+        if isDEMO{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+            vc.modalPresentationStyle = .overFullScreen
+            vc.delegate = self
+            self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
+            vc.timeLabel.text = elapsedTime
+            vc.rankingLabel.text = "デモ"
+        }else{
+            let realm = try! Realm()
+            let ranking = Ranking()
+            ranking.date = Date()
+            routines.forEach{ranking.routineList.append($0)}
+            var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+            now.year = aramClock.year
+            now.month = aramClock.month
+            now.day = aramClock.day
+            let diff = calendar.dateComponents([.second], from: self.aramClock, to: now)
+            ranking.time = Int(diff.second!)
+            try! realm.write({
+                realm.add(ranking)
+            })
+            let rank = realm.objects(Ranking.self).filter("time < \(ranking.time)").count + 1
 
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        vc.modalPresentationStyle = .overFullScreen
-        vc.delegate = self
-        self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
-        vc.timeLabel.text = elapsedTime
-        vc.rankingLabel.text = String(rank) + "位"
-
+            let vc = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+            vc.modalPresentationStyle = .overFullScreen
+            vc.delegate = self
+            self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
+            vc.timeLabel.text = elapsedTime
+            vc.rankingLabel.text = String(rank) + "位"
+        }
     }
     
     func dismissDialog(){
@@ -243,14 +255,21 @@ class RTAViewController: UIViewController {
     }
     
     @objc func timeCheck(){
-        var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-        now.year = aramClock.year
-        now.month = aramClock.month
-        now.day = aramClock.day
+        if isDEMO{
+            let now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+            let diff = calendar.dateComponents([.hour,.minute,.second], from: startDate, to: now)
+            clockLabel.text = String(diff.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff.second!).leftPadding(toLength: 2, withPad: "0")
+            elapsedTime = clockLabel.text!
+        }else{
+            var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+            now.year = aramClock.year
+            now.month = aramClock.month
+            now.day = aramClock.day
 
-        let diff1 = calendar.dateComponents([.hour,.minute,.second], from: self.aramClock, to: now)
-        clockLabel.text = String(diff1.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.second!).leftPadding(toLength: 2, withPad: "0")
-        elapsedTime = clockLabel.text!
+            let diff1 = calendar.dateComponents([.hour,.minute,.second], from: self.aramClock, to: now)
+            clockLabel.text = String(diff1.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.second!).leftPadding(toLength: 2, withPad: "0")
+            elapsedTime = clockLabel.text!
+        }
     }
     
     func secs2str(_ second: Int) -> String{

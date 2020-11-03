@@ -53,38 +53,35 @@ class CreateViewController: UIViewController {
         let alert: UIAlertController = UIAlertController(title: "消去", message: "ルーティーンを消去してもいいですか？", preferredStyle:  UIAlertController.Style.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
-            let realm = try! Realm()
+        let realm = try! Realm()
 
-            let routineItemIndex = self.routineItem.index
-            try! realm.write{
-                realm.delete(self.routineItem)
-            }
-            
-            let routine = realm.objects(RoutineItem.self)
-            print(routine)
+        let routineItemIndex = self.routineItem.index
+        try! realm.write{
+            realm.delete(self.routineItem)
+        }
+        
+        let routine = realm.objects(RoutineItem.self)
+        print(routine)
 
-            guard let routineLast = routine.sorted(byKeyPath: "index", ascending: true).last else {
-                self.deletedDialogDismiss()
-                return
-            }
-            
-            print("routineLast",routineLast.index)
-            print("routineItem",routineItemIndex)
+        guard let routineLast = routine.sorted(byKeyPath: "index", ascending: true).last else {
+            self.deletedDialogDismiss()
+            return
+        }
+        
             if (routineLast.index + 1) == routineItemIndex{
                 self.deletedDialogDismiss()
                 return
+            }else{
+                try! realm.write({
+                    for index in routineItemIndex...routineLast.index - 1{
+                        routine[index - 1].index -= 1
+                    }
+                })
             }
-                    
-            try! realm.write {
-                for index in (routineItemIndex + 1)...routineLast.index{
-                    routine[index].index -= 1
-                }
-            }
-            print(routine)
-            
-            self.dismiss(animated: true, completion: nil)
-            (self.delegrate as! HomeViewController).routineView.reloadData()
-            Loaf("消去しました！", state: .success, sender: self.delegrate).show(.short)
+        
+        self.dismiss(animated: true, completion: nil)
+        (self.delegrate as! HomeViewController).routineView.reloadData()
+        Loaf("消去しました！", state: .success, sender: self.delegrate).show(.short)
 
         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{

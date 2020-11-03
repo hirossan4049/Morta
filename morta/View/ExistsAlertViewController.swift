@@ -20,7 +20,6 @@ class ExistsAlertViewController: UIViewController {
     
     @IBAction func exit(){
         delegate.dismissDialog()
-        delegate.dismiss(animated: true, completion: nil)
     }
     
 

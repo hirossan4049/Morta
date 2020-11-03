@@ -17,10 +17,12 @@ class RankingViewController: UIViewController, SwiftyMenuDelegate, UITableViewDe
 
     @IBOutlet private weak var dropDownMenu: SwiftyMenu!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rankingLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundColor
+        rankingLabel.textColor = .tabbarColor
         
         realm = try! Realm()
         switch sortType {
@@ -80,6 +82,8 @@ class RankingViewController: UIViewController, SwiftyMenuDelegate, UITableViewDe
         cell.timeLabel.text = String(h) + "時間" + String(m) + "分" + String(s) + "秒"
         cell.backgroundColor = .backgroundSubColor
         cell.rankView.backgroundColor = .none
+        cell.timeLabel.textColor = .textColor
+        cell.timeLabel.textColor = .textColor
         let rank = realm.objects(Ranking.self).sorted(byKeyPath: "time", ascending: true).index(of: rankings[indexPath.row])!
         cell.rankView.subviews.forEach({$0.removeFromSuperview()})
         

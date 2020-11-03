@@ -33,10 +33,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-            
-//        try! realm.write({
-//            realm.deleteAll()
-//        })
 //
 //        for i in 1...10{
 //            let item = RoutineItem()
@@ -46,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //                realm.add(item)
 //            })
 //        }
-        
+        aleartSwitch.isHidden = true
 
         routine = realm.objects(RoutineItem.self)
         
@@ -81,8 +77,41 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         routineView.isEditing = true
 
+//        let isBeenHome = UserDefaults.standard.bool(forKey: "isBeenHome")
+        let isBeenTutorial = UserDefaults.standard.bool(forKey: "isBeenTutorial")
+        if isBeenTutorial {
+//            if !isBeenHome{
+//                UserDefaults.standard.set(true, forKey: "isBeenHome")
+//            }
+        } else {
+            self.fst()
+            demoMode = true
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "TutorialViewController") as? TutorialViewController
+//            vc?.modalPresentationStyle = .overFullScreen
+//            self.present(vc!, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: "isBeenTutorial")
+        }
+
     
     }
+    
+    func fst(){
+        createRoutine(title: "起床", index: 1)
+        createRoutine(title: "歯を磨く", index: 2)
+        createRoutine(title: "朝ごはんを食べる", index: 3)
+
+    }
+    
+    private func createRoutine(title:String, index: Int){
+        let realm = try! Realm()
+        let ri = RoutineItem()
+        ri.title = title
+        ri.index = index
+        try! realm.write({
+            realm.add(ri)
+        })
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -104,9 +133,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let min  = calendar.component(.minute, from: date)
         aleartLabel.text = String(hour).leftPadding(toLength: 2, withPad: "0") + ":" + String(min).leftPadding(toLength: 2, withPad: "0")
         
-        var isSuspension = UserDefaults.standard.bool(forKey: "isSuspension")
-        if isSuspension == nil{
-            isSuspension = false
+        let isSuspension = UserDefaults.standard.bool(forKey: "isSuspension")
+        
+        if !isSuspension{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.resume()
+            }
+            UserDefaults.standard.set(true, forKey: "isSuspension")
         }
         
         let now = calendar.dateComponents([.hour, .minute, .second], from: Date())
@@ -114,14 +147,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         if now.hour! == hour{
             if now.minute! > min{
+                demoMode = false
                 resumeButton.setTitle("再開する", for: .normal)
             }
         
         }else if now.hour! > hour{
+            demoMode = false
             resumeButton.setTitle("再開する", for: .normal)
         }else{
-            resumeButton.setTitle("DEMO", for: .normal)
+            resumeButton.setTitle("デモ", for: .normal)
             demoMode = true
+        }
+        let today = calendar.component(.day, from: Date())
+        let lastdate = realm.objects(Ranking.self).sorted(byKeyPath: "date", ascending: true).last?.date
+        if lastdate != nil{
+            let lastday = calendar.component(.day, from:lastdate!)
+            if lastday == today{
+                demoMode = true
+                resumeButton.setTitle("デモ", for: .normal)
+            }
         }
         
         
@@ -148,6 +192,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func resume(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "RTAViewController") as? RTAViewController
         vc?.modalPresentationStyle = .overFullScreen
+        vc?.isDEMO = demoMode
         self.present(vc!, animated: true, completion: nil)
     }
 

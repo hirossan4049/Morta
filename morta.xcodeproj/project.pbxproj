@@ -38,6 +38,10 @@
 		D3AF1EBB255134DF00C8A88C /* ExistsAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */; };
 		D3AF1ECE255156EE00C8A88C /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1ECC255156EE00C8A88C /* RankingTableViewCell.swift */; };
 		D3AF1ECF255156EE00C8A88C /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AF1ECD255156EE00C8A88C /* RankingTableViewCell.xib */; };
+		D3AF1EE1255192E500C8A88C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1EE0255192E500C8A88C /* TutorialViewController.swift */; };
+		D3AF1EE62551942B00C8A88C /* blueBackView.json in Resources */ = {isa = PBXBuildFile; fileRef = D3AF1EE52551942B00C8A88C /* blueBackView.json */; };
+		D3AF1EEE255194E000C8A88C /* orangeBackView.json in Resources */ = {isa = PBXBuildFile; fileRef = D3AF1EED255194E000C8A88C /* orangeBackView.json */; };
+		D3AF1EF22551A31100C8A88C /* Cica-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D36C8A6C254401BD002DB150 /* Cica-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,9 @@
 		D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistsAlertViewController.swift; sourceTree = "<group>"; };
 		D3AF1ECC255156EE00C8A88C /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		D3AF1ECD255156EE00C8A88C /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
+		D3AF1EE0255192E500C8A88C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		D3AF1EE52551942B00C8A88C /* blueBackView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blueBackView.json; sourceTree = "<group>"; };
+		D3AF1EED255194E000C8A88C /* orangeBackView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orangeBackView.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +213,9 @@
 		D36C8B032547DE4B002DB150 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				D3AF1EE52551942B00C8A88C /* blueBackView.json */,
 				D36C8B072547DE58002DB150 /* check-animation.json */,
+				D3AF1EED255194E000C8A88C /* orangeBackView.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 				D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */,
 				D3AF1EA82551148300C8A88C /* ResultViewController.swift */,
 				D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */,
+				D3AF1EE0255192E500C8A88C /* TutorialViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,11 +412,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AF1EF22551A31100C8A88C /* Cica-Regular.ttf in Resources */,
 				D36C8AF52547D844002DB150 /* RTAItem.xib in Resources */,
 				D3AAC44B2543D33000DA83D2 /* LaunchScreen.storyboard in Resources */,
+				D3AF1EEE255194E000C8A88C /* orangeBackView.json in Resources */,
 				D3AAC4482543D33000DA83D2 /* Assets.xcassets in Resources */,
 				D36C8B082547DE58002DB150 /* check-animation.json in Resources */,
 				D3AF1ECF255156EE00C8A88C /* RankingTableViewCell.xib in Resources */,
+				D3AF1EE62551942B00C8A88C /* blueBackView.json in Resources */,
 				D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */,
 				D3AAC4462543D32D00DA83D2 /* Main.storyboard in Resources */,
 			);
@@ -538,6 +551,7 @@
 			files = (
 				D36C8AA025442400002DB150 /* CreateViewController.swift in Sources */,
 				D36C8A402543EAD7002DB150 /* RankingViewController.swift in Sources */,
+				D3AF1EE1255192E500C8A88C /* TutorialViewController.swift in Sources */,
 				D3AF1ECE255156EE00C8A88C /* RankingTableViewCell.swift in Sources */,
 				D36C8A532543EBF8002DB150 /* UIColor+.swift in Sources */,
 				D3AF1EA92551148300C8A88C /* ResultViewController.swift in Sources */,
