@@ -46,6 +46,11 @@ class RankingViewController: UIViewController, SwiftyMenuDelegate, UITableViewDe
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     enum SortType:String {
         case new = "新規順"
         case rank = "ランク順"
@@ -78,7 +83,7 @@ class RankingViewController: UIViewController, SwiftyMenuDelegate, UITableViewDe
         let rank = realm.objects(Ranking.self).sorted(byKeyPath: "time", ascending: true).index(of: rankings[indexPath.row])!
         cell.rankView.subviews.forEach({$0.removeFromSuperview()})
         
-        if indexPath.row < 3{
+        if rank < 3{
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: cell.rankView.frame.width, height: cell.rankView.frame.height))
             imageView.image = UIImage(named: "rank\(rank + 1)")
             cell.rankView.addSubview(imageView)

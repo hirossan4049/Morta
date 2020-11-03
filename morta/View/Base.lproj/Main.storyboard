@@ -30,15 +30,15 @@
                                 <rect key="frame" x="30" y="816" width="354" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KFg-ke-JKt">
-                                        <rect key="frame" x="64" y="0.0" width="226" height="60"/>
+                                        <rect key="frame" x="45" y="0.0" width="264" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x0-hT-sJK">
-                                                <rect key="frame" x="0.0" y="15" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Anz-5b-CG0"/>
-                                                    <constraint firstAttribute="width" constant="30" id="Pw3-XT-47r"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Anz-5b-CG0"/>
+                                                    <constraint firstAttribute="width" constant="60" id="Pw3-XT-47r"/>
                                                 </constraints>
-                                                <state key="normal" image="homeIcon" backgroundImage="homeIcon">
+                                                <state key="normal" backgroundImage="homeIcon">
                                                     <color key="titleColor" systemColor="opaqueSeparatorColor"/>
                                                 </state>
                                                 <connections>
@@ -46,10 +46,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yE-SR-u7m">
-                                                <rect key="frame" x="206" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="204" y="0.0" width="60" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="7XJ-PO-zqN"/>
-                                                    <constraint firstAttribute="width" constant="20" id="uJ1-iv-Es0"/>
+                                                    <constraint firstAttribute="height" constant="60" id="7XJ-PO-zqN"/>
+                                                    <constraint firstAttribute="width" constant="60" id="uJ1-iv-Es0"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="listIcon">
                                                     <color key="titleColor" systemColor="systemGreenColor"/>
@@ -63,9 +63,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="KFg-ke-JKt" secondAttribute="trailing" constant="64" id="2Ds-RF-2QZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="KFg-ke-JKt" secondAttribute="trailing" constant="45" id="2Ds-RF-2QZ"/>
                                     <constraint firstItem="KFg-ke-JKt" firstAttribute="top" secondItem="7sD-oQ-byp" secondAttribute="top" id="HmX-E0-tBn"/>
-                                    <constraint firstItem="KFg-ke-JKt" firstAttribute="leading" secondItem="7sD-oQ-byp" secondAttribute="leading" constant="64" id="RgB-la-AXs"/>
+                                    <constraint firstItem="KFg-ke-JKt" firstAttribute="leading" secondItem="7sD-oQ-byp" secondAttribute="leading" constant="45" id="RgB-la-AXs"/>
                                     <constraint firstAttribute="height" constant="60" id="ZPq-qx-vsR"/>
                                     <constraint firstAttribute="bottom" secondItem="KFg-ke-JKt" secondAttribute="bottom" id="dqb-JJ-Knj"/>
                                 </constraints>
@@ -86,6 +86,7 @@
                     <connections>
                         <outlet property="fragmentView" destination="DIo-pP-bgY" id="PqF-oJ-DrG"/>
                         <outlet property="homeBtn" destination="3x0-hT-sJK" id="xlF-Eu-qQC"/>
+                        <outlet property="rankingBtn" destination="4yE-SR-u7m" id="Xc8-mb-Qak"/>
                         <outlet property="tabbar" destination="7sD-oQ-byp" id="4KA-5c-Fxj"/>
                     </connections>
                 </viewController>
@@ -665,8 +666,8 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="editIcon" width="189" height="189"/>
         <image name="gestureIcon" width="165" height="165"/>
-        <image name="homeIcon" width="117" height="129"/>
-        <image name="listIcon" width="115" height="81"/>
+        <image name="homeIcon" width="152" height="152"/>
+        <image name="listIcon" width="152" height="152"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">

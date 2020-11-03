@@ -48,13 +48,16 @@ class ViewController: UIViewController {
         }else{
             switch type {
             case .home:
+                homeBtn.setBackgroundImage(UIImage(named: "homeIcon"), for: .normal)
+                rankingBtn.setBackgroundImage(UIImage(named: "listIconDisable"), for: .normal)
                 remove(viewController: rankingVC)
                 add(viewController: homeVC)
             case .ranking:
+                homeBtn.setBackgroundImage(UIImage(named: "homeIconDisable"), for: .normal)
+                rankingBtn.setBackgroundImage(UIImage(named: "listIcon"), for: .normal)
                 remove(viewController: homeVC)
                 add(viewController: rankingVC)
-            default:
-                return
+            default:return
             }
             nowFragmentsType = type
         }
