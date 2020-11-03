@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var realm:Realm!
     private var timeLimitTextField: UITextField!
     private var datePicker: UIDatePicker!
+    private var demoMode = false
 
     @IBOutlet weak var routineView: UITableView!
     
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var getupLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
     @IBOutlet weak var routineLabel: UILabel!
+    @IBOutlet weak var resumeButton: UIButton!
 
     @IBOutlet weak var aleartSwitch: UISwitch!
 
@@ -78,12 +80,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         switchChange(bool: isSwitch)
         
         routineView.isEditing = true
-        
+
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         (self.view.viewWithTag(2525))?.removeFromSuperview()
         
         var aramTime = UserDefaults.standard.integer(forKey: "ararmTime")
@@ -107,10 +110,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let now = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        if now.hour! > hour{
-            // FIXME: まだ
+        let diff = calendar.dateComponents([.second], from: now, to: Calendar.current.dateComponents(in: TimeZone.current, from: date))
+
+        if now.hour! == hour{
+            if now.minute! > min{
+                resumeButton.setTitle("再開する", for: .normal)
+            }
+        
+        }else if now.hour! > hour{
+            resumeButton.setTitle("再開する", for: .normal)
         }else{
-            
+            resumeButton.setTitle("DEMO", for: .normal)
+            demoMode = true
         }
         
         

@@ -23,6 +23,7 @@ class RTAViewController: UIViewController {
     private var rtaIndex = -1
     private var rtaItems:[RTAItem] = []
     private var isMoving = false
+    private var routines: Results<RoutineItem>!
     
     private var gestureType: GestureType = .yet
     private var aramClock: DateComponents!
@@ -44,16 +45,29 @@ class RTAViewController: UIViewController {
         calendar = Calendar.current
         let aramTime = UserDefaults.standard.integer(forKey: "ararmTime")
         let date = Date(timeIntervalSince1970: TimeInterval(aramTime))
-        print(date)
         aramClock = Calendar.current.dateComponents(in: TimeZone.current, from: date)
         
         clockLabel.text = "Loading..."
                         
         
         let realm = try! Realm()
-        let routines = realm.objects(RoutineItem.self).sorted(byKeyPath: "index", ascending: true)
+        routines = realm.objects(RoutineItem.self).sorted(byKeyPath: "index", ascending: true)
         let lastindex = routines.last?.index
         
+        let today = calendar.component(.day, from: Date())
+        let lastdate = realm.objects(Ranking.self).sorted(byKeyPath: "date", ascending: true).last?.date
+        if lastdate != nil{
+            // MARK: DEBUG
+//            let lastday = calendar.component(.day, from:lastdate!)
+//            if lastday == today{
+//                let vc = storyboard?.instantiateViewController(withIdentifier: "ExistsAlertViewController") as! ExistsAlertViewController
+//                vc.modalPresentationStyle = .overFullScreen
+//                vc.delegate = self
+//                self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
+//            }
+        }
+        
+
         for item in routines{
             var positionType:RTAItem.PositionType!
             if item.index == 1{
@@ -65,7 +79,6 @@ class RTAViewController: UIViewController {
             }
             let view2 = RTAItem(position: positionType)
             view2.titleLabel.text = item.title
-            print(self.rtaScrollView.frame.width )
             view2.frame = CGRect(x: 0, y: 60*(item.index - 1), width: Int(self.rtaScrollView.bounds.width), height: 60)
             self.rtaScrollView.addSubview(view2)
             rtaItems.append(view2)
@@ -166,6 +179,11 @@ class RTAViewController: UIViewController {
             rtaItem.timerLabel.text = elapsedTime
             rtaItem.timerLabel.isHidden = false
             
+            if rtaIndex == (routines.last!.index - 1){
+                print("LAST")
+                end()
+            }
+            
             nowIndexCenter(index: self.rtaIndex)
         }
 
@@ -193,6 +211,35 @@ class RTAViewController: UIViewController {
     
     func stop(){
         
+    }
+    
+    func end(){
+        let realm = try! Realm()
+        let ranking = Ranking()
+        ranking.date = Date()
+        routines.forEach{ranking.routineList.append($0)}
+        var now = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+        now.year = aramClock.year
+        now.month = aramClock.month
+        now.day = aramClock.day
+        let diff = calendar.dateComponents([.second], from: self.aramClock, to: now)
+        ranking.time = Int(diff.second!)
+        try! realm.write({
+            realm.add(ranking)
+        })
+        let rank = realm.objects(Ranking.self).filter("time < \(ranking.time)").count + 1
+
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.delegate = self
+        self.presentDialogViewController(vc, animationPattern: .fadeInOut, completion: { () -> Void in })
+        vc.timeLabel.text = elapsedTime
+        vc.rankingLabel.text = String(rank) + "位"
+
+    }
+    
+    func dismissDialog(){
+        dismissDialogViewController(.fadeInOut)
     }
     
     @objc func timeCheck(){

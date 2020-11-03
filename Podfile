@@ -10,6 +10,8 @@ target 'morta' do
   pod 'Loaf'
   pod 'lottie-ios'
   pod 'LSDialogViewController', '~> 4.0'
+  pod 'SwiftyMenu', '~> 0.6.4'
+
   target 'mortaTests' do
     inherit! :search_paths
     # Pods for testing

@@ -33,6 +33,11 @@
 		D3AAC4612543D33000DA83D2 /* mortaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4602543D33000DA83D2 /* mortaUITests.swift */; };
 		D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAC4792543D63000DA83D2 /* HomeViewController.swift */; };
 		D3AF1E8E254F99D700C8A88C /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */; };
+		D3AF1EA92551148300C8A88C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1EA82551148300C8A88C /* ResultViewController.swift */; };
+		D3AF1EB62551267100C8A88C /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1EB52551267100C8A88C /* Ranking.swift */; };
+		D3AF1EBB255134DF00C8A88C /* ExistsAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */; };
+		D3AF1ECE255156EE00C8A88C /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AF1ECC255156EE00C8A88C /* RankingTableViewCell.swift */; };
+		D3AF1ECF255156EE00C8A88C /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3AF1ECD255156EE00C8A88C /* RankingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +97,11 @@
 		D3AAC4622543D33000DA83D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3AAC4792543D63000DA83D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
+		D3AF1EA82551148300C8A88C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D3AF1EB52551267100C8A88C /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistsAlertViewController.swift; sourceTree = "<group>"; };
+		D3AF1ECC255156EE00C8A88C /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		D3AF1ECD255156EE00C8A88C /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,8 @@
 				D36C8A622543FCF4002DB150 /* RoutineTableViewCell.xib */,
 				D36C8AEF2547D83A002DB150 /* RTAItem.swift */,
 				D36C8AF42547D844002DB150 /* RTAItem.xib */,
+				D3AF1ECC255156EE00C8A88C /* RankingTableViewCell.swift */,
+				D3AF1ECD255156EE00C8A88C /* RankingTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -186,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				D36C8AB125455602002DB150 /* RoutineItem.swift */,
+				D3AF1EB52551267100C8A88C /* Ranking.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +288,8 @@
 				D36C8A9F25442400002DB150 /* CreateViewController.swift */,
 				D36C8ABF25470351002DB150 /* RTAViewController.swift */,
 				D3AF1E8D254F99D700C8A88C /* TimePickerViewController.swift */,
+				D3AF1EA82551148300C8A88C /* ResultViewController.swift */,
+				D3AF1EBA255134DF00C8A88C /* ExistsAlertViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +406,7 @@
 				D3AAC44B2543D33000DA83D2 /* LaunchScreen.storyboard in Resources */,
 				D3AAC4482543D33000DA83D2 /* Assets.xcassets in Resources */,
 				D36C8B082547DE58002DB150 /* check-animation.json in Resources */,
+				D3AF1ECF255156EE00C8A88C /* RankingTableViewCell.xib in Resources */,
 				D36C8A642543FCF4002DB150 /* RoutineTableViewCell.xib in Resources */,
 				D3AAC4462543D32D00DA83D2 /* Main.storyboard in Resources */,
 			);
@@ -522,13 +538,17 @@
 			files = (
 				D36C8AA025442400002DB150 /* CreateViewController.swift in Sources */,
 				D36C8A402543EAD7002DB150 /* RankingViewController.swift in Sources */,
+				D3AF1ECE255156EE00C8A88C /* RankingTableViewCell.swift in Sources */,
 				D36C8A532543EBF8002DB150 /* UIColor+.swift in Sources */,
+				D3AF1EA92551148300C8A88C /* ResultViewController.swift in Sources */,
 				D3AAC4432543D32D00DA83D2 /* ViewController.swift in Sources */,
 				D3AAC43F2543D32D00DA83D2 /* AppDelegate.swift in Sources */,
 				D36C8A4E2543EBE3002DB150 /* String+leftPadding.swift in Sources */,
+				D3AF1EB62551267100C8A88C /* Ranking.swift in Sources */,
 				D36C8AB225455602002DB150 /* RoutineItem.swift in Sources */,
 				D3AAC4412543D32D00DA83D2 /* SceneDelegate.swift in Sources */,
 				D3526919254BDE7F004907A9 /* AramStatus.swift in Sources */,
+				D3AF1EBB255134DF00C8A88C /* ExistsAlertViewController.swift in Sources */,
 				D36C8AC025470351002DB150 /* RTAViewController.swift in Sources */,
 				D3AAC47A2543D63000DA83D2 /* HomeViewController.swift in Sources */,
 				D36C8AF02547D83A002DB150 /* RTAItem.swift in Sources */,
