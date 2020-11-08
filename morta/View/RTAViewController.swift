@@ -29,6 +29,7 @@ class RTAViewController: UIViewController {
     private var aramClock: DateComponents!
     private var calendar: Calendar!
     private var elapsedTime: String = ""
+    private var timer: Timer!
     
     var isDEMO: Bool = false
     private var startDate: DateComponents!
@@ -71,7 +72,6 @@ class RTAViewController: UIViewController {
             }
         }
         
-
         for item in routines{
             var positionType:RTAItem.PositionType!
             if item.index == 1{
@@ -96,9 +96,7 @@ class RTAViewController: UIViewController {
         
         rtaScrollView.showsHorizontalScrollIndicator = false
         
-        start()        
-
-
+        start()
     }
     
     enum GestureType {
@@ -117,31 +115,33 @@ class RTAViewController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isMoving{
             let x = touches.first?.location(in: guestureBackView).x
-            if x! > 270{
-                if x! > UIScreen.main.bounds.size.width - 90{
+            let scWidth = UIScreen.main.bounds.size.width
+            if x! > scWidth - 130{
+                if x! > scWidth - 100{
                     return
                 }
                 if case .next = gestureType{}else{
                     AudioServicesPlaySystemSound( 1519 )
+                    gestureType = .next
+                    gestureImageView.image = UIImage(named: "gestureIconNext")
                 }
-                gestureImageView.image = UIImage(named: "gestureIconNext")
-                gestureType = .next
             }else if x! < 130{
                 if x! < 70{
                     return
                 }
                 if case .back = gestureType{}else{
                     AudioServicesPlaySystemSound( 1519 )
+                    gestureType = .back
+                    gestureImageView.image = UIImage(named: "gestureIconBack")
                 }
-                gestureImageView.image = UIImage(named: "gestureIconBack")
-                gestureType = .back
             }
             else{
-                gestureImageView.image = UIImage(named: "gestureIcon")
-                gestureType = .yet
+                if case .yet = gestureType{}else{
+                    gestureImageView.image = UIImage(named: "gestureIcon")
+                    gestureType = .yet
+                }
             }
             gestureImageView.center.x = x!
-
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -209,7 +209,7 @@ class RTAViewController: UIViewController {
     
     func start(){
         print("=========START============")
-        let timer = Timer(timeInterval: 1,
+        timer = Timer(timeInterval: 1,
                           target: self,
                           selector: #selector(timeCheck),
                           userInfo: nil,
@@ -270,8 +270,8 @@ class RTAViewController: UIViewController {
             now.month = aramClock.month
             now.day = aramClock.day
 
-            let diff1 = calendar.dateComponents([.hour,.minute,.second], from: self.aramClock, to: now)
-            clockLabel.text = String(diff1.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff1.second!).leftPadding(toLength: 2, withPad: "0")
+            let diff = calendar.dateComponents([.hour,.minute,.second], from: self.aramClock, to: now)
+            clockLabel.text = String(diff.hour!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff.minute!).leftPadding(toLength: 2, withPad: "0") + ":" + String(diff.second!).leftPadding(toLength: 2, withPad: "0")
             elapsedTime = clockLabel.text!
         }
     }
@@ -292,11 +292,10 @@ class RTAViewController: UIViewController {
         return false
     }
     
-
-    
     
     @IBAction func exit(){
         self.dismiss(animated: true, completion: nil)
+        self.timer.invalidate()
     }
     
     func nowIndexCenter(index: Int){
