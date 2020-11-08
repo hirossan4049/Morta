@@ -75,7 +75,11 @@ class RTAViewController: UIViewController {
         for item in routines{
             var positionType:RTAItem.PositionType!
             if item.index == 1{
-                positionType = .top
+                if item.index == lastindex{
+                    positionType = .alone
+                }else{
+                    positionType = .top
+                }
             }else if item.index == lastindex{
                 positionType = .bottom
             }else{
