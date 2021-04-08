@@ -44,7 +44,6 @@ class RTAViewController: UIViewController {
         self.clockBackView.layer.cornerRadius = 15
         self.clockLabel.textColor = .textColor
         self.guestureBackView.backgroundColor = .none
-        
 
         calendar = Calendar.current
         let aramTime = UserDefaults.standard.integer(forKey: "ararmTime")
@@ -54,7 +53,6 @@ class RTAViewController: UIViewController {
         clockLabel.text = "Loading..."
         
         startDate = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-
         
         let realm = try! Realm()
         routines = realm.objects(RoutineItem.self).sorted(byKeyPath: "index", ascending: true)
